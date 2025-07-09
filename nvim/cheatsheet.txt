@@ -1,0 +1,5 @@
+<leader> ff		Telescope Finder
+<leader> fg		Live grep
+<leader> tt		Toplevel Shell
+<leader> ip		Attach Python
+<leader> isc, icc	Attach custom env
