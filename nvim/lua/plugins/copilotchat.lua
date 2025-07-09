@@ -7,7 +7,10 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
-	model = "o4-mini"
+	model = "o4-mini",
+	window = {
+		width = 0.25,
+	}
     },
   },
 }

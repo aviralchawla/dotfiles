@@ -61,5 +61,9 @@ require("copilot").setup({})
 require("copilot_cmp").setup()
 require('lualine').setup()
 require('nvim_comment').setup()
+require('neo-tree').setup()
+require('bufferline').setup()
 require('keymaps.all')
+
 vim.cmd.colorscheme "catppuccin"
+vim.opt.splitright = true
