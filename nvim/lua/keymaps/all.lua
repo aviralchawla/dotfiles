@@ -1,25 +1,31 @@
 local keymap = vim.keymap.set
 
 -- General
+keymap('t', '<Esc>', [[<C-\><C-n>]], {noremap = true, silent = true})
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find file" })
--- keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>",  { desc = "Live grep" })
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>",  { desc = "Live grep" })
 
 -- Terminal
 keymap({ "n", "t" }, "<leader>tt", "<cmd>ToggleTerm direction=float<cr>", { desc = "Toggle terminal" })
 
 -- Molten (Jupyter)
-keymap("n", "<leader>ip", "<cmd>MoltenInit python3<cr>", { desc = "Init python kernel" })
-keymap({ "n", "v" }, "<leader>rr", "<cmd>MoltenEvaluate<cr>", { desc = "Run cell/selection" })
-keymap("n", "<leader>r", ":MoltenEvaluateOperator<CR>", { desc = "Molten: run motion" })
+-- keymap("n", "<leader>ip", "<cmd>MoltenInit python3<cr>", { desc = "Init python kernel" })
+-- keymap({ "n", "v" }, "<leader>rr", "<cmd>MoltenEvaluate<cr>", { desc = "Run cell/selection" })
+-- keymap("n", "<leader>r", ":MoltenEvaluateOperator<CR>", { desc = "Molten: run motion" })
 -- -- Custome Envs
-keymap("n", "<leader>isc", ":MoltenInit social-choice<CR>", { desc = "Start Jupyter kernel: social-choice" })
-keymap("n", "<leader>icc", ":MoltenInit cc<CR>", { desc = "Start Jupyter kernel: cc" })
+-- keymap("n", "<leader>isc", ":MoltenInit social-choice<CR>", { desc = "Start Jupyter kernel: social-choice" })
+-- keymap("n", "<leader>icc", ":MoltenInit cc<CR>", { desc = "Start Jupyter kernel: cc" })
 -- -- Evaluation Fix
-keymap("n", "<leader>rr", ":MoltenEvaluateLine<CR>", { desc = "Molten: run current line" })
-keymap("v", "<leader>rr", ":<C-u>MoltenEvaluateVisual<CR>", { desc = "Molten: run selection" })
-
+-- keymap("n", "<leader>rr", ":MoltenEvaluateLine<CR>", { desc = "Molten: run current line" })
+-- keymap("v", "<leader>rr", ":<C-u>MoltenEvaluateVisual<CR>", { desc = "Molten: run selection" })
+-- vim.keymap.set({"n","v"}, "<leader>rr",
+--   function()
+--     -- send visually selected or current line to terminal #1
+--     require("toggleterm").exec("ipy", 1)  -- or R, bash, etc.
+--   end,
+--   { desc = "Run selection in external REPL" })
 -- Gemini
 keymap("n", "<leader>og", "<cmd>Gemini<cr>",          { desc = "Open Gemini CLI buffer" })
 
@@ -69,5 +75,22 @@ keymap({ "n", "x" }, "<leader>cf", ":CopilotChatInPlace Fix<CR>",
 -- Bufferline
 keymap("n", "<leader>bp", "<cmd>BufferLinePick<cr>", { desc = "Pick buffer" })
 keymap("n", "<leader>bn", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
-keymap("n", "<leader>bp", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
+-- keymap("n", "<leader>bp", "<cmd>BufferLineCyclePrev<cr>", { desc = "Previous buffer" })
 keymap("n", "<leader>bd", "<cmd>BufferLinePickClose<cr>", { desc = "Pick buffer to close" })
+
+-- ToggleTerm
+keymap("n", "<leader>ip",
+  "<cmd>1TermExec cmd='ipython' direction=vertical size=45 go_back=0<CR>",
+  { desc = "Open/toggle IPython REPL", silent = true })
+keymap("n", "<leader>icc",
+  "<cmd>1TermExec cmd='conda activate cc & ipython' direction=vertical size=45 go_back=0<CR>",
+  { desc = "Open/toggle IPython REPL", silent = true })
+keymap("n", "<leader>isc",
+  "<cmd>1TermExec cmd='conda activate social-choice & ipython' direction=vertical size=45 go_back=0<CR>",
+  { desc = "Open/toggle IPython REPL", silent = true })
+keymap("n", "<leader>rr",
+  "<cmd>ToggleTermSendCurrentLine 1<CR>",
+  { desc = "Send current line to REPL", silent = true })
+keymap("v", "<leader>rr",
+  "<cmd>ToggleTermSendVisualSelection 1<CR>",
+  { desc = "Send selection to REPL", silent = true })

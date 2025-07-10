@@ -34,7 +34,7 @@ require("lazy").setup({
   opts = {                -- optional tweaks
     format = "markdown",  -- or "py:percent", "auto", …
   }},
-  { "akinsho/toggleterm.nvim", version = "*", config = true },-- pop-up terminals :contentReference[oaicite:5]{index=5}
+  -- { "akinsho/toggleterm.nvim", version = "*", config = true },-- pop-up terminals :contentReference[oaicite:5]{index=5}
   "tpope/vim-fugitive",                        -- :Git, :Gdiff, …
   { "lewis6991/gitsigns.nvim", config = true },-- gutter blame / hunk actions
   { "kdheepak/lazygit.nvim",                   -- LazyGit UI in a float :contentReference[oaicite:6]{index=6}
@@ -67,3 +67,4 @@ require('keymaps.all')
 
 vim.cmd.colorscheme "catppuccin"
 vim.opt.splitright = true
+vim.api.nvim_set_option("clipboard","unnamed")
