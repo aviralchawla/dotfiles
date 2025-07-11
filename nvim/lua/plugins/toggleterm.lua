@@ -3,8 +3,8 @@ return {
   version = "*",
   opts = {
     direction     = "vertical",   -- default split style
-    size          = 100, 
-    persist_size  = true,         -- remember width across sessions
-    start_in_insert = true,
+    width	 = 100,           -- default width of the terminal
+    persist_size  = false,         -- remember width across sessions
+    start_in_insert = false,
   },
 }

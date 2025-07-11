@@ -80,13 +80,13 @@ keymap("n", "<leader>bd", "<cmd>BufferLinePickClose<cr>", { desc = "Pick buffer 
 
 -- ToggleTerm
 keymap("n", "<leader>ip",
-  "<cmd>1TermExec cmd='ipython' direction=vertical size=45 go_back=0<CR>",
+  "<cmd>1TermExec cmd='ipython' direction=vertical size=60 go_back=0<CR>",
   { desc = "Open/toggle IPython REPL", silent = true })
 keymap("n", "<leader>icc",
-  "<cmd>1TermExec cmd='conda activate cc & ipython' direction=vertical size=45 go_back=0<CR>",
+  "<cmd>1TermExec cmd='conda activate cc & ipython' direction=vertical size=60 go_back=0<CR>",
   { desc = "Open/toggle IPython REPL", silent = true })
 keymap("n", "<leader>isc",
-  "<cmd>1TermExec cmd='conda activate social-choice & ipython' direction=vertical size=45 go_back=0<CR>",
+  "<cmd>1TermExec cmd='conda activate social-choice & ipython' direction=vertical size=60 go_back=0<CR>",
   { desc = "Open/toggle IPython REPL", silent = true })
 keymap("n", "<leader>rr",
   "<cmd>ToggleTermSendCurrentLine 1<CR>",
