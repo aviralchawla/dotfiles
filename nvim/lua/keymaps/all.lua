@@ -2,6 +2,7 @@ local keymap = vim.keymap.set
 
 -- General
 keymap('t', '<Esc>', [[<C-\><C-n>]], {noremap = true, silent = true})
+keymap('n', '<leader>xv', 'gg<S-v>Gy', { desc = "Copy all to clipboard" })
 
 -- Telescope
 keymap("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find file" })
