@@ -21,11 +21,10 @@ require("lazy").setup({
   { "hrsh7th/nvim-cmp",                                -- autocompletion-engine
       dependencies = {
         "hrsh7th/cmp-nvim-lsp", "L3MON4D3/LuaSnip",
-        "saadparwaiz1/cmp_luasnip", "zbirenbaum/copilot-cmp"
+	"saadparwaiz1/cmp_luasnip",
       }
   },
   { "terrortylor/nvim-comment" },
-  { "zbirenbaum/copilot.lua", cmd = "Copilot", build = ":Copilot auth"},
   { "jonroosevelt/gemini-cli.nvim", cmd = "Gemini" },
   {
   "goerz/jupytext.nvim",
@@ -34,7 +33,6 @@ require("lazy").setup({
   opts = {                -- optional tweaks
     format = "markdown",  -- or "py:percent", "auto", …
   }},
-  -- { "akinsho/toggleterm.nvim", version = "*", config = true },-- pop-up terminals :contentReference[oaicite:5]{index=5}
   "tpope/vim-fugitive",                        -- :Git, :Gdiff, …
   { "lewis6991/gitsigns.nvim", config = true },-- gutter blame / hunk actions
   { "kdheepak/lazygit.nvim",                   -- LazyGit UI in a float :contentReference[oaicite:6]{index=6}
@@ -57,8 +55,7 @@ require("gitsigns").setup({
   current_line_blame   = false,  -- toggleable inline blame
   preview_config = { border = "rounded" },
 })
-require("copilot").setup({})
-require("copilot_cmp").setup()
+
 require('lualine').setup()
 require('nvim_comment').setup()
 require('neo-tree').setup()
@@ -68,4 +65,3 @@ require('keymaps.all')
 vim.cmd.colorscheme "catppuccin"
 vim.opt.splitright = true
 vim.api.nvim_set_option("clipboard","unnamed")
-vim.o.autoread = true
